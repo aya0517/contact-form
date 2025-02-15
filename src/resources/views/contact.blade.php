@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact form</title>
-    <link rel="stylesheet" href="{{asset('css/sanitize.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/contact.css')}}" />
-</head>
+@section('content')
 
 <body>
     <header class="header">
@@ -24,7 +16,8 @@
             <div class="contact-form__heading">
                 <h2>Contact</h2>
             </div>
-            <form class="form" action="/confirm" method="post">
+
+            <form class="form" action="{{ route('contact.confirm') }}" method="post">
                 @csrf
                 <div class="form__group">
                     <div class="form__group-title">
@@ -91,13 +84,14 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--text">
-                            <input type="tel" name="tel" value="{{ old('tel') }}" placeholder="080 1234 5678" />
-                            <!--3つに分けて入力し、間にハイフンを表示-->
+                            <input type="text" name="tel1" value="{{ old('tel1') }}" placeholder="080"> -
+                            <input type="text" name="tel2" value="{{ old('tel2') }}" placeholder="1234"> -
+                            <input type="text" name="tel3" value="{{ old('tel3') }}" placeholder="5678">
                         </div>
                         <div class="form__error">
-                            @error('tel')
-                            <p style="color: red;">{{ $message }}</p>
-                            @enderror
+                            @error('tel1') <p style="color: red;">{{ $message }}</p> @enderror
+                            @error('tel2') <p style="color: red;">{{ $message }}</p> @enderror
+                            @error('tel3') <p style="color: red;">{{ $message }}</p> @enderror
                         </div>
                     </div>
                 </div>
@@ -138,14 +132,13 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__group-content">
-                            <select name="category_id">
+                            <select name="category_id" required>
                                 <option value="">選択してください</option>
                                 @foreach ($categories as $category)
                                 <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
                                     {{ $category->content }}
                                 </option>
                                 @endforeach
-                            </select>
                         </div>
                         <div class="form__error">
                             @error('category_id')

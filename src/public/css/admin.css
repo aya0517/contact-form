@@ -1,0 +1,221 @@
+/* ============================= */
+/* 管理画面のスタイル (admin.css) */
+/* ============================= */
+
+/* --- 全体レイアウト --- */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f6f4;
+    color: #5a5146;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- ヘッダー --- */
+.header {
+    background-color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e5e5e5;
+}
+
+.header_logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #5a5146;
+}
+
+.logout-button {
+    background: none;
+    border: 1px solid #b29e84;
+    color: #b29e84;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logout-button:hover {
+    background: #b29e84;
+    color: #fff;
+}
+
+/* --- 管理画面のコンテンツ --- */
+.admin__content {
+    width: 80%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+/* --- 検索フォーム --- */
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.search-box input,
+.search-box select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-button,
+.reset-button,
+.export-button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.search-button {
+    background: #5a5146;
+    color: #fff;
+}
+
+.search-button:hover {
+    background: #40372e;
+}
+
+.reset-button {
+    background: #b29e84;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+.reset-button:hover {
+    background: #8c735a;
+}
+
+.export-button {
+    background: #3f729b;
+    color: #fff;
+}
+
+.export-button:hover {
+    background: #2b547e;
+}
+
+/* --- テーブルデザイン --- */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-table th,
+.admin-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.admin-table th {
+    background-color: #b29e84;
+    color: white;
+}
+
+.admin-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* --- 詳細ボタン --- */
+.detail-button {
+    background: #8c735a;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.detail-button:hover {
+    background: #5a5146;
+}
+
+/* --- ページネーション --- */
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination .page-item {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.pagination .page-link {
+    padding: 8px 12px;
+    background: #5a5146;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.pagination .page-link:hover {
+    background: #40372e;
+}
+
+/* ========================= */
+/* モーダルデザイン (詳細表示) */
+/* ========================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 40%;
+    margin: 10% auto;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+    color: #5a5146;
+}
+
+.modal-content p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#delete-button {
+    background: #d9534f;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#delete-button:hover {
+    background: #c9302c;
+}

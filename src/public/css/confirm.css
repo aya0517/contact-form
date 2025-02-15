@@ -1,0 +1,92 @@
+.header {
+background: #fff;
+}
+
+.header_inner{
+max-width: 1512px;
+height: 100px;
+border: 1px;
+}
+
+.header_logo {
+font: inika; /*フォント反映確認*/
+size: 40px;
+font-weight: 400; /*文字の太さ確認*/
+color:#8B7969
+}
+
+.contact-form__content{
+margin: 0 auto;
+padding: 30px 15px; /*確認*/
+max-width: 1230px;
+}
+
+.contact-form__heading{
+margin-bottom: 40px; /*確認*/
+font: inika; /*フォント反映確認*/
+text-align: center;
+font-size: 35px;
+font-weight: 400;
+color: #8B7969;
+}
+
+.form{ /*どこに反映されているか確認*/
+margin: 0 auto;
+width: 70%;
+text-align: center;
+}
+
+.confirm-table{
+border: 1px solid #E0DFDE;
+}
+
+.confirm-table__inner{
+width: 100%;
+}
+
+.confirm-table__header{
+padding: 15px;
+width: 35px;
+height: 69.92px;
+border-bottom: 1px solid #E0DFDE;
+background-color: #8B7969;
+color: #fff;
+font-size: 20px;
+font-weight: 400;
+}
+
+.confirm-table__text{ /*確認*/
+padding: 15px;
+border-bottom: 1px solid #E0DFDE;
+}
+
+.confirm-table__text input{ /*確認*/
+width: 100%;
+outline: none;
+border: none;
+}
+
+.confirm-table__row:last-child .confirm-table__header,
+.confirm-table__row:last-child .confirm-table__text {
+border-bottom-width: 0;
+}
+
+.form__button {
+display: flex;
+justify-content: space-between;
+height: 42px;
+width: 120px;
+padding: 10px 40px; /*上下、左右*/
+font-size: 20px;
+font-weight: 400;
+}
+
+.form__button-submit{
+background-color:#8B7969;
+color: #fff;
+}
+
+.form__button-edit{
+color:#8B7969;
+text-decoration: underline;
+}

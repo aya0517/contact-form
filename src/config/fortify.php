@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Providers\RouteServiceProvider;
 use Laravel\Fortify\Features;
 
@@ -74,7 +75,7 @@ return [
     |
     */
 
-    'home' => RouteServiceProvider::HOME,
+    'home' => '/admin',
 
     /*
     |--------------------------------------------------------------------------
