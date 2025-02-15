@@ -1,60 +1,107 @@
+body {
+    background-color: #f2ece4;
+}
+
+main {
+    padding-top: 80px;
+}
+
 .header {
-    background: #fff;
-    border: 1px #e0dfde;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header__inner {
-    /*必要か確認*/
-    margin: 0 auto;
-    padding: 20px 15px;
-    max-width: 1230px;
-}
-
-.header-utilities {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     position: relative;
-    padding: 10px 20px;
 }
 
 .header__logo {
-    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
     color: #88786e;
     text-decoration: none;
-    font-weight: 400;
-    font-size: 35px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
 }
 
-.header-utilities nav {
-    margin-left: auto; /* これが重要！右寄せ */
+.header-utilities {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .header-nav {
     display: flex;
     align-items: center;
-    gap: 10px; /* ボタン同士の間隔 */
-    margin-left: auto; /* これが重要！右寄せ */
+    list-style: none;
+    padding: 0;
+    margin-left: auto !important;
+    gap: 20px;
 }
 
-.header__button {
-    display: inline-block;
-    text-align: center;
+.header-nav__button {
     text-decoration: none;
-    border: 1px solid #d9c6b5;
-    background: rgb(246, 245, 243, 0.6);
     color: #d9c6b5;
-    height: 34px;
-    width: 100px;
-    font-size: 20px;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: 1px solid #d9c6b5;
+    background-color: transparent
+}
+
+.header-nav__button:hover {
+    background-color: #88786e;
+    color: #ffffff;
+}
+
+.header-nav__item form {
+    display: inline;
+}
+
+.header-nav__item button {
+    background: transparent;
+    border: 1px solid #d9c6b5;
+    color: #f6f6f6;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.header__button:hover {
-    background: #b89f8f; /* 少し濃い色に変化 */
+.header-nav__item button:hover {
+    background-color: #88786e;
+    color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+    .header__inner {
+        flex-direction: column;
+    }
+
+    .header__logo {
+        position: static;
+        transform: none;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .header-nav {
+        margin-left: 0;
+    }
 }

@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact-form</title>
+    <title>FashionablyLate</title>
+
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
     @yield('css')
 </head>
 
@@ -20,24 +20,24 @@
                     FashionablyLate
                 </a>
 
-                <!-- ログインページなら register ボタンを表示 -->
-                @if (Request::is('login'))
-                <a href="/register" class="header__button">register</a>
-                @endif
-
-                <!-- 登録ページなら login ボタンを表示 -->
-                @if (Request::is('register'))
-                <a href="/login" class="header__button">login</a>
-                @endif
-
                 <nav>
                     <ul class="header-nav">
+                        @if (Request::is('login'))
+                        <li class="header-nav__item">
+                            <a href="/register" class="header-nav__button">register</a>
+                        </li>
+                        @elseif (Request::is('register'))
+                        <li class="header-nav__item">
+                            <a href="/login" class="header-nav__button">login</a>
+                        </li>
+                        @endif
+
                         @if (Auth::check())
                         <li class="header-nav__item">
-                            <a href="/register" class="header-nav__button">Register</a>
-                        </li>
-                        <li class="header-nav__item">
-                            <a href="/login" class="header-nav__button">Login</a>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="header-nav__button">logout</button>
+                            </form>
                         </li>
                         @endif
                     </ul>

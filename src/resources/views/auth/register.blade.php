@@ -1,15 +1,17 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/common.css') }}">
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 @endsection
 
+
 @section('content')
+<div class="register-form__heading">
+    <h2>会員登録</h2>
+</div>
+
 <div class="register__content">
-    <div class="register-form__heading">
-        <h2>会員登録</h2>
-    </div>
     <form class="form" action="/register" method="post">
         @csrf
         <div class="form__group">

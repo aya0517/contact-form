@@ -1,15 +1,17 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/common.css') }}">
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 @endsection
 
+@section('body-class', 'login-page')
+
 @section('content')
+<div class="login-form__heading">
+    <h2>Login</h2>
+</div>
 <div class="login__content">
-    <div class="login-form__heading">
-        <h2>Login</h2>
-    </div>
     <form class="form" action="/login" method="post">
         @csrf
         <div class="form__group">

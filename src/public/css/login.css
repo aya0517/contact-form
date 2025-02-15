@@ -1,69 +1,74 @@
-body {
+body.login-page {
     background-color: #f1ece7;
-}
-
-.login-form__content {
-    margin: 0 auto;
-    padding: 30px 15px;
-    max-width: 1230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 60px 0;
 }
 
 .login-form__heading {
-    margin-bottom: 20px;
     text-align: center;
+    font-size: 24px;
+    font-weight: bold;
     color: #88786e;
+    margin-bottom: 60px;
+}
+
+.login__content {
+    width: 600px;
+    height: auto;
+    background: white;
+    padding: 60px 40px;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    border: 1px solid #c5b9b0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top:30px;
 }
 
 .form {
-    margin: 50px auto;
-    width: 50%;
-    height: 70%;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-}
-
-.form__group {
-    margin-bottom: 5px;
-    width: 50%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+    gap: 30px;
+    padding: 30px;
 }
 
 .form__group-title {
     text-align: left;
-}
-
-.form__error {
-    height: 20px;
-    color: #ff0000;
-    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: #88786e;
+    margin-bottom: 5px;
 }
 
 .form__input--text input {
-    padding: 10px;
     width: 100%;
-    height: 40px;
+    padding: 10px;
     border: 1px solid #ddd;
+    border-radius: 5px;
     background-color: #f9f6f2;
-    border-radius: 3px;
-
-    appearance: none;
-}
-
-.form__button {
-    margin-top: 20px;
+    font-size: 14px;
 }
 
 .form__button-submit {
+    width: 160px;
     padding: 10px 40px;
-    width: 150px;
-    height: 50px;
+    background-color: #82756a;
+    color: white;
     border: none;
-    border-radius: 3px;
-    background: #88786e;
-    color: #fff;
     cursor: pointer;
-    margin-bottom: 80px;
-    font-size: 15px;
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+.form__button-submit:hover {
+    background-color: #6d5d52;
 }

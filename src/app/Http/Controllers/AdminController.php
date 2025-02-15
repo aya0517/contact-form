@@ -11,7 +11,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $contacts = Contact::with('category')->latest()->paginate(4);
+        $contacts = Contact::with('category')->latest()->paginate(7);
         $categories = Category::all();
         return view('admin', compact('contacts', 'categories'));
     }

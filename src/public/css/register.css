@@ -1,69 +1,74 @@
-body {
+body.register-page {
     background-color: #f1ece7;
-}
-
-.register-form__content {
-    margin: 0 auto;
-    padding: 30px 15px;
-    max-width: 1230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 60px 0;
 }
 
 .register-form__heading {
-    margin-bottom: 20px;
     text-align: center;
+    font-size: 24px;
+    font-weight: bold;
     color: #88786e;
+    margin-bottom: 60px;
+}
+
+.register__content {
+    width: 600px;
+    height: auto;
+    background: white;
+    padding: 60px 50px;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    border: 1px solid #c5b9b0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 80px;
 }
 
 .form {
-    margin: 0 auto;
-    width: 50%;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-}
-
-.form__group {
-    margin-bottom: 5px;
-    width: 50%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+    gap: 30px;
+    padding: 30px;
 }
 
 .form__group-title {
     text-align: left;
-}
-
-.form__error {
-    height: 20px;
-    color: #ff0000;
-    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: #88786e;
+    margin-bottom: 5px;
 }
 
 .form__input--text input {
-    padding: 10px;
     width: 100%;
-    height: 40px;
+    padding: 10px;
     border: 1px solid #ddd;
-
-    appearance: none;
-}
-
-.form__button {
-    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #f9f6f2;
+    font-size: 14px;
 }
 
 .form__button-submit {
-    padding: 10px;
-    width: 30%;
-    height: 50px;
+    width: 160px;
+    padding: 10px 40px;
+    background-color: #82756a;
+    color: white;
     border: none;
-    border-radius: 3px;
-    background: #000;
-    color: #fff;
     cursor: pointer;
+    font-size: 16px;
+    margin-top: 50px;
 }
 
-.login__link {
-    margin-top: 20px;
-    text-align: center;
+.form__button-submit:hover {
+    background-color: #6d5d52;
 }

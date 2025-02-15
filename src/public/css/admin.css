@@ -1,56 +1,17 @@
-/* ============================= */
-/* 管理画面のスタイル (admin.css) */
-/* ============================= */
-
-/* --- 全体レイアウト --- */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f6f4;
-    color: #5a5146;
+    background-color: #ffffff;
+    color: #88786e;
     margin: 0;
     padding: 0;
 }
 
-/* --- ヘッダー --- */
-.header {
-    background-color: #fff;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #e5e5e5;
-}
-
-.header_logo {
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #5a5146;
-}
-
-.logout-button {
-    background: none;
-    border: 1px solid #b29e84;
-    color: #b29e84;
-    padding: 8px 12px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.logout-button:hover {
-    background: #b29e84;
-    color: #fff;
-}
-
-/* --- 管理画面のコンテンツ --- */
 .admin__content {
     width: 80%;
     margin: 40px auto;
     text-align: center;
 }
 
-/* --- 検索フォーム --- */
 .search-box {
     display: flex;
     justify-content: center;
@@ -77,7 +38,7 @@ body {
 }
 
 .search-button {
-    background: #5a5146;
+    background: #88786e;
     color: #fff;
 }
 
@@ -86,7 +47,7 @@ body {
 }
 
 .reset-button {
-    background: #b29e84;
+    background: d9c6b5;
     color: white;
     text-decoration: none;
     padding: 10px 15px;
@@ -98,15 +59,14 @@ body {
 }
 
 .export-button {
-    background: #3f729b;
-    color: #fff;
+    background: #eceae6;
+    color: #88786e;
 }
 
 .export-button:hover {
     background: #2b547e;
 }
 
-/* --- テーブルデザイン --- */
 .admin-table {
     width: 100%;
     border-collapse: collapse;
@@ -115,7 +75,7 @@ body {
 
 .admin-table th,
 .admin-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #e0dfde;
     padding: 12px;
     text-align: center;
 }
@@ -125,14 +85,10 @@ body {
     color: white;
 }
 
-.admin-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* --- 詳細ボタン --- */
 .detail-button {
-    background: #8c735a;
-    color: white;
+    background: #fcfcfc;
+    color: #e0dfde;
+    border: 1px solid #e0dfde;
     padding: 8px 12px;
     border: none;
     cursor: pointer;
@@ -140,10 +96,9 @@ body {
 }
 
 .detail-button:hover {
-    background: #5a5146;
+    background: #b29e84;
 }
 
-/* --- ページネーション --- */
 .pagination {
     margin-top: 20px;
 }
@@ -165,9 +120,6 @@ body {
     background: #40372e;
 }
 
-/* ========================= */
-/* モーダルデザイン (詳細表示) */
-/* ========================= */
 .modal {
     display: none;
     position: fixed;
