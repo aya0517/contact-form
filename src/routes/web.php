@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
+use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,20 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::middleware('auth')->group(function () {
-    Route::get('/', [AuthController::class, 'index']);
+Route::middleware(['guest'])->group(function () {
+    Route::get('/register', function () {
+        return view('auth.register');
+    })->name('register');
+
+    Route::get('/login', function () {
+        return view('auth.login');
+    })->name('login');
+
+    Route::post('/register', [RegisteredUserController::class, 'store']);
+    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 });
+
+Route::middleware('auth')->group(function () {
+    Route::get('/', [AuthController::class, 'contact']);
+});
+
