@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 @endsection
 @section('content')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <main>
     <div class="admin__content">
@@ -24,7 +25,7 @@
                 </select>
                 <select name="category_id">
                     <option value="">お問い合わせの種類</option>
-                    @foreach($categories as $category)
+                    @foreach($categories->unique('content') as $category)
                     <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
                         {{ $category->content }}
                     </option>
@@ -127,7 +128,6 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // モーダル開閉処理
         const modal = document.getElementById("modal");
         const closeButton = document.querySelector(".close");
         const deleteButton = document.getElementById("delete-button");
@@ -159,15 +159,35 @@
 
         deleteButton.addEventListener("click", function() {
             const contactId = this.getAttribute("data-id");
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+
             fetch(`/admin/contact/${contactId}/delete`, {
-                    method: "DELETE"
+                    method: "DELETE",
+                    headers: {
+                        "X-CSRF-TOKEN": csrfToken,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        _token: csrfToken
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("削除に失敗しました");
+                    }
+                    return response.json();
                 })
                 .then(() => {
                     alert("削除しました");
                     modal.style.display = "none";
                     location.reload();
+                })
+                .catch(error => {
+                    console.error("削除エラー:", error);
+                    alert("削除に失敗しました");
                 });
         });
     });
 </script>
+
 @endsection

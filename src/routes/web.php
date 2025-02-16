@@ -35,4 +35,4 @@ Route::get('/thanks', [ContactController::class, 'thanks'])->name('contact.thank
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 Route::get('/admin/export', [AdminController::class, 'export'])->name('admin.export');
 Route::get('/admin/contact/{id}', [AdminController::class, 'show']);
-Route::delete('/admin/contact/{id}/delete', [AdminController::class, 'destroy']);
+Route::delete('/admin/contact/{id}/delete', [AdminController::class, 'destroy'])->name('admin.contact.destroy');
