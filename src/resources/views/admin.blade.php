@@ -1,24 +1,16 @@
 @extends('layouts.app')
 
-@section('content')
+@section('css')
 <link rel="stylesheet" href="{{ asset('css/common.css') }}">
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-
-<header class="header">
-    <div class="header_inner">
-        <a class="header_logo" href="/">
-            FashionablyLate
-        </a>
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit" class="logout-button">logout</button>
-        </form>
-    </div>
-</header>
+@endsection
+@section('content')
 
 <main>
     <div class="admin__content">
-        <h2>Admin</h2>
+        <div class="admin__content-header">
+            <h2>Admin</h2>
+        </div>
 
         <!-- 検索フォーム -->
         <form action="{{ route('admin') }}" method="GET">
@@ -44,10 +36,19 @@
             </div>
         </form>
 
-        <!-- エクスポートボタン -->
-        <form action="{{ route('admin.export') }}" method="GET">
-            <button type="submit" class="export-button">エクスポート</button>
-        </form>
+        <div class="export-pagination-container">
+            <!-- エクスポートボタン（左揃え） -->
+            <div class="export-button-container">
+                <form action="{{ route('admin.export') }}" method="GET">
+                    <button type="submit" class="export-button">エクスポート</button>
+                </form>
+            </div>
+
+            <!-- ページネーション（右揃え） -->
+            <div class="pagination-container">
+                {{ $contacts->links('vendor.pagination.custom') }}
+            </div>
+        </div>
 
         <!-- お問い合わせ一覧 -->
         <table class="admin-table">
@@ -80,28 +81,48 @@
             </tbody>
         </table>
 
-        <!-- ページネーション -->
-        <div class="pagination">
-            {{ $contacts->links() }}
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-inner">
+                    <table class="modal-table">
+                        <tr>
+                            <th>お名前</th>
+                            <td><span id="modal-name"></span></td>
+                        </tr>
+                        <tr>
+                            <th>性別</th>
+                            <td><span id="modal-gender"></span></td>
+                        </tr>
+                        <tr>
+                            <th>メールアドレス</th>
+                            <td><span id="modal-email"></span></td>
+                        </tr>
+                        <tr>
+                            <th>電話番号</th>
+                            <td><span id="modal-tel"></span></td>
+                        </tr>
+                        <tr>
+                            <th>住所</th>
+                            <td><span id="modal-address"></span></td>
+                        </tr>
+                        <tr>
+                            <th>建物名</th>
+                            <td><span id="modal-building"></span></td>
+                        </tr>
+                        <tr>
+                            <th>お問い合わせの種類</th>
+                            <td><span id="modal-category"></span></td>
+                        </tr>
+                        <tr>
+                            <th>お問い合わせ内容</th>
+                            <td><span id="modal-detail"></span></td>
+                        </tr>
+                    </table>
+                    <button id="delete-button">削除</button>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <!-- モーダルウィンドウ -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>お問い合わせ詳細</h3>
-            <p><strong>お名前:</strong> <span id="modal-name"></span></p>
-            <p><strong>性別:</strong> <span id="modal-gender"></span></p>
-            <p><strong>メールアドレス:</strong> <span id="modal-email"></span></p>
-            <p><strong>電話番号:</strong> <span id="modal-tel"></span></p>
-            <p><strong>住所:</strong> <span id="modal-address"></span></p>
-            <p><strong>建物名:</strong> <span id="modal-building"></span></p>
-            <p><strong>お問い合わせの種類:</strong> <span id="modal-category"></span></p>
-            <p><strong>お問い合わせ内容:</strong> <span id="modal-detail"></span></p>
-            <button id="delete-button">削除</button>
-        </div>
-    </div>
 </main>
 
 <script>

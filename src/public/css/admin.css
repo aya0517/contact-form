@@ -1,42 +1,80 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Arial", sans-serif;
     background-color: #ffffff;
     color: #88786e;
     margin: 0;
     padding: 0;
 }
 
+/* 管理画面のコンテンツ全体 */
 .admin__content {
     width: 80%;
     margin: 40px auto;
     text-align: center;
 }
 
-.search-box {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+/* ヘッダー */
+.admin__content-header {
+    font-size: 24px;
     margin-bottom: 20px;
+    font-family: 'Inika', serif;
 }
 
+/* 🔹検索フォーム（横並び） */
+.search-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+/* 検索フィールド（横並び） */
 .search-box input,
 .search-box select {
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 12px;
 }
 
+/* 🔹文字が切れないように調整 */
+.search-box input[type="text"] {
+    width: 250px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* 🔹性別選択のドロップダウンのサイズ調整 */
+.search-box select.gender-select {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.search-box select.category-select {
+    width: auto;
+    min-width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* 🔹検索・リセットボタン */
 .search-button,
-.reset-button,
-.export-button {
+.reset-button {
     padding: 10px 15px;
     border: none;
     cursor: pointer;
-    font-size: 14px;
     transition: 0.3s;
+    text-align: center;
+    width: auto;
+    text-wrap: nowrap;
 }
 
+/* 🔹検索ボタン */
 .search-button {
     background: #88786e;
     color: #fff;
@@ -46,27 +84,136 @@ body {
     background: #40372e;
 }
 
+/* 🔹リセットボタン */
 .reset-button {
-    background: d9c6b5;
+    background: #d9c6b5;
     color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: inline-block;
 }
 
 .reset-button:hover {
     background: #8c735a;
 }
 
+/* 🔹エクスポートボタン */
 .export-button {
     background: #eceae6;
     color: #88786e;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+    width: 15%;
+    min-width: 150px;
 }
 
 .export-button:hover {
-    background: #2b547e;
+    background: #b29e84;
 }
 
+/* 🔹エクスポートボタンとページネーションを左右に配置 */
+.export-pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 0;
+    gap: 20px;
+}
+
+/* 🔹 エクスポートボタンを左揃え */
+.export-button-container {
+    text-align: left;
+}
+
+/* 🔹 ページネーションを右揃え */
+.pagination-container {
+    text-align: right;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 🔹 ページネーション全体のスタイル */
+.pagination {
+    display: flex;
+    border: 1px solid #ccc; /* 外枠を統一 */
+    border-radius: 10px; /* 四隅だけ丸くする */
+    overflow: hidden; /* ボーダーが二重にならないように */
+    padding: 0;
+}
+
+/* 🔹 ページネーションの各ボタン（数字や矢印） */
+.pagination .page-item {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+/* 🔹 ページ番号を四角のボックスにする */
+.pagination .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    border-right: 1px solid #ccc; /* 右のボーダーのみ適用 */
+    color: #88786e;
+    font-size: 16px;
+    font-weight: bold;
+    background: #fff;
+}
+
+/* 🔹 ホバー時の色変更 */
+.pagination .page-link:hover {
+    background: #d9c6b5;
+    color: white;
+}
+
+/* 🔹 現在のページの色 */
+.pagination .active .page-link {
+    background: #88786e;
+    color: white;
+}
+
+/* 🔹 ページネーションの矢印（前へ・次へ） */
+.pagination .page-item a[rel="prev"],
+.pagination .page-item a[rel="next"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    background: #fff;
+    color: #88786e;
+    border-right: 1px solid #ccc;
+}
+
+/* 🔹 左端と右端のボタンを丸く */
+.pagination .page-item:first-child .page-link {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.pagination .page-item:last-child .page-link {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: none;
+}
+
+/* 🔹 無効状態の矢印 */
+.pagination .disabled .page-link {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* 🔹管理画面のテーブル */
 .admin-table {
     width: 100%;
     border-collapse: collapse;
@@ -81,14 +228,15 @@ body {
 }
 
 .admin-table th {
-    background-color: #b29e84;
+    background-color: #88786e;
     color: white;
 }
 
+/* 🔹詳細ボタン */
 .detail-button {
     background: #fcfcfc;
-    color: #e0dfde;
-    border: 1px solid #e0dfde;
+    color: #c4c3c3;
+    border: 1px solid #c4c3c3;
     padding: 8px 12px;
     border: none;
     cursor: pointer;
@@ -99,27 +247,7 @@ body {
     background: #b29e84;
 }
 
-.pagination {
-    margin-top: 20px;
-}
-
-.pagination .page-item {
-    display: inline-block;
-    margin: 0 5px;
-}
-
-.pagination .page-link {
-    padding: 8px 12px;
-    background: #5a5146;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.pagination .page-link:hover {
-    background: #40372e;
-}
-
+/* 🔹モーダル */
 .modal {
     display: none;
     position: fixed;
@@ -133,32 +261,64 @@ body {
 
 .modal-content {
     background: white;
-    padding: 20px;
-    width: 40%;
+    padding: 40px;
+    width: 50%;
     margin: 10% auto;
-    border-radius: 5px;
-    text-align: center;
+    text-align: left;
     position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.modal-content h3 {
+.modal-inner {
+    padding: 30px;  /* 🔹モーダル内の余白を増やす */
+}
+
+.modal-table {
+    width: 100%;
+    border-collapse: collapse;
     margin-bottom: 20px;
+}
+
+.modal-table th {
+    text-align: left;
+    font-weight: bold;
+    padding: 12px 15px; 
+    padding: 8px;
     color: #5a5146;
+    width: 30%;
 }
 
-.modal-content p {
-    margin: 10px 0;
-    font-size: 16px;
+.modal-table td {
+    padding: 8px;
+    text-align: left;
+    padding: 12px 15px; 
+    color: #88786e;
+    vertical-align: top;
 }
 
+.modal-table tr:last-child td {
+    padding-bottom: 20px;  /* 🔹下の余白を増やす */
+}
+
+/* 🔹閉じるボタン（×を丸で囲む） */
 .close {
     position: absolute;
-    right: 15px;
     top: 15px;
-    font-size: 24px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid #bbb;
+    font-size: 18px;
+    text-align: center;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* 🔹削除ボタン */
 #delete-button {
     background: #d9534f;
     color: white;
@@ -166,6 +326,8 @@ body {
     border: none;
     cursor: pointer;
     margin-top: 20px;
+    display: block;
+    margin: 0 auto;
 }
 
 #delete-button:hover {

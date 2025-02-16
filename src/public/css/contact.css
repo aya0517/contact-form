@@ -1,74 +1,215 @@
-.header {
-background: #fff;
+/* 🔹 全体の背景色 */
+body {
+    background-color: #fff !important;
 }
 
-.header_inner{
-max-width: 1512px;
-height: 100px;
-border: 1px;
+input:not([type="radio"]),
+select,
+textarea {
+    all: unset !important; /* sanitize.css の影響を打ち消す */
+    width: 100% !important; /* フル幅 */
+    padding: 12px !important;
+    background-color: #f4f4f4 !important; /* 背景色適用 */
+    border: none !important;
+    border-radius: 3px !important;
+    appearance: none !important;
+    outline: none !important;
+    font-size: 16px !important;
+    color: #beb2a6 !important;
 }
 
-.header_logo {
-font: inika; /*フォント反映確認*/
-size: 40px;
-font-weight: 400; /*文字の太さ確認*/
-color:#8B7969
+/* 🔹 フォームのコンテンツ */
+.contact-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
 }
 
-.contact-form__content{
-margin: 0 auto;
-padding: 30px 15px; /*確認*/
-max-width: 1230px;
+/* 🔹 見出し */
+.contact-form__heading {
+    margin-bottom: 40px;
+    text-align: center;
+    color: #8b7969;
+    font-family: "Inika", serif;
 }
 
-.contact-form__heading{
-margin-bottom: 40px; /*確認*/
-font: inika; /*フォント反映確認*/
-text-align: center;
-color: #8B7969;
+/* 🔹 フォームの全体設定 */
+.form {
+    margin: 0 auto;
+    width: 70%;
+    text-align: left;
+    display: table;
 }
 
-.form{ /*どこに反映されているか確認*/
-margin: 0 auto;
-width: 70%;
-text-align: center;
+/* 🔹 テーブルレイアウト */
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.form_group{ /*どこに反映されているか確認*/
-display: flex;
-justify-content: space-between;
-margin-bottom: 15px;
+/* 🔹 テーブルのヘッダー */
+.form-table th {
+    text-align: left;
+    font-size: 16px;
+    color: #8b7969;
+    padding: 10px 20px;
+    white-space: nowrap;
+    vertical-align: middle;
 }
 
+/* 🔹 必須マーク（赤色） */
+.form-table th .required {
+    color: red;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+/* 🔹 テーブルのデータセル */
+.form-table td {
+    padding: 10px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+/* 🔹 名前（姓・名）と電話番号の入力フィールド */
+.form__input--name,
+.form__input--tel {
+    display: flex !important;
+    gap: 20px !important;
+    align-items: center !important;
+    width: 100% !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between!important;
+}
+
+.form__input--name input,
+.form__input--tel input {
+    flex: 1 !important;  /* 各入力欄を均等に広げる */
+    padding: 12px !important;
+    background-color: #f4f4f4 !important;
+    border: none !important;
+    border-radius: 3px !important;
+    text-align: left !important; /* プレースホルダーは左揃え */
+    min-width: 0 !important; /* 均等な幅にする */
+}
+
+/* 🔹 性別選択（ラジオボタン） */
+.form__input--gender {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* 🔹 性別ラベル */
+.form__input--gender label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: #8b7969;
+    cursor: pointer;
+}
+
+/* 🔹 デフォルトのラジオボタンを非表示 */
+.form__input--gender input[type="radio"] {
+    display: none;
+}
+
+/* 🔹 カスタムラジオボタン */
+.custom-radio {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #8b7969;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+}
+
+/* 🔹 選択時のラジオボタンの見た目 */
+.form__input--gender input[type="radio"]:checked + .custom-radio::before {
+    content: "●";
+    font-size: 14px;
+    color: #8b7969;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 🔹 入力フィールド（ボーダーなし & 背景色 #f4f4f4） */
+.form__input--name input,
+.form__input--tel input,
 .form__input--text input,
-.form__input--textarea textarea { /*どこに反映されているか確認*/
-padding: 10px;
-width: 600px;
-border: 1px solid #BEB1A6;
-border-radius: 3px;
-
-appearance: none;
+.form__input--textarea textarea,
+.form__input--select select {
+    width: 100% !important;
+    padding: 10px !important;
+    background-color: #f4f4f4 !important;
+    border: none !important;
+    border-radius: 3px !important;
+    appearance: none !important;
+    outline: none !important;
 }
 
-.form__input--text input{
-height: 38px;
-}
-
+/* 🔹 テキストエリアの高さ */
 .form__input--textarea textarea {
-height: 129px;
+    height: 129px;
 }
 
-.form__button{
-margin-top: 903px;
-margin-left: 674px;
+/* 🔹 セレクトボックス */
+.form__input--select {
+    position: relative;
+    width: 100%;
 }
 
-.form__button-submit{
-padding: 10px 40px; /*上下、左右*/
-width:160px;
-height: 46px;
-border: none;
-background-color: #82756A;
-color: #fff;
-cursor: pointer;
+/* 🔹 セレクトボックスの見た目 */
+.form__input--select select {
+    cursor: pointer;
+}
+
+/* 🔹 セレクトボックスの矢印 */
+.form__input--select::after {
+    content: "▼";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #8b7969;
+    pointer-events: none;
+}
+
+/* 🔹 プレースホルダーの位置設定（基本は左揃え） */
+.form__input--text input::placeholder,
+.form__input--textarea textarea::placeholder,
+.form__input--select select::placeholder {
+    text-align: left !important;
+    color: #aaa !important;
+}
+
+/* 🔹 電話番号の placeholder だけ中央揃え */
+.form__input--tel input::placeholder {
+    text-align: center;
+}
+
+/* 🔹 確認ボタン */
+.form__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.form__button-submit {
+    padding: 10px 40px;
+    width: 160px;
+    height: 50px;
+    border: none;
+    background-color: #82756a;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form__button-submit:hover {
+    background-color: #6d5d52;
 }

@@ -1,5 +1,5 @@
 body.login-page {
-    background-color: #f1ece7;
+    background-color: #f9f6f2 !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

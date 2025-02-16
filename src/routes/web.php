@@ -23,9 +23,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 });
 
-Route::get('/', [ContactController::class, 'show'])->name('contact.show');
+Route::match(['GET', 'POST'], '/', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
 Route::post('/store', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
+
+
 
 Route::get('/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
 
