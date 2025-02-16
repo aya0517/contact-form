@@ -1,66 +1,29 @@
-# contact-form
+# お問い合わせフォーム
 
-git clone git@github.com:tamachima327/laravel-template.git
-```
+## 環境構築
 
-```
-yes | rm -r laravel-template/.git
-```
+## Dockerビルド
+1. git clone: git@github.com:aya0517/contact-form.git
+2. docker-compose up -d -build
 
-```
-git clone 新しいリポジトリのSSH
-```
+## Laravel環境構築
+1. docker compose up -d --build
+2. cp src/.env.example src/.env
+3. docker compose exec php bash
+4. composer install
+5. php artisan key:generate
+6. php artisan migrate
 
-```
-mv laravel-template/* laravel-template/.[^\.]* 新しいリポジトリの名前
-```
+## 使用技術
+・PHP 8.0
+・Laravel 10.0
+・MySQL 8.0
+・Nginx 1.21.1
+・phpMyAdmin 5.2.2
 
-```
-rm -r laravel-template
-```
+## ER図
+![ER図](public/images/graph.png)
 
-```
-cd 新しいリポジトリの名前
-```
-
-```
-code .
-```
-
-## 環境構築手順
-
--   コンテナを立ち上げるため、以下を実行
-
-```
-docker compose up -d --build
-```
-
--   env ファイルの作成をするため、以下を実行
-
-```
-cp src/.env.example src/.env
-```
-
--   php にコンテナに入るため、以下を実行
-
-```
-docker compose exec php bash
-```
-
--   composer パッケージをインストールするため、以下を実行
-
-```
-composer install
-```
-
--   アプリケーションキーを作成するため、以下を実行
-
-```
-php artisan key:generate
-```
-
--   マイグレーションを実行するため、以下を実行
-
-```
-php artisan migrate
-```
+## URL
+・開発環境: http://localhost
+・phpMyAdmin: http://localhost:8080
